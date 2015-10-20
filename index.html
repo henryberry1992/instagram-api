@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title></title>
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.css.map">
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+			<link rel="stylesheet" type="text/css" href="css/style.css">
+		</head>
+		<body>
+			
+			<div class = "row">
+
+				<div class = "user-container col-xs-12 col-md-6 text-center padding-top-10">
+					<form id = "user-form" action = "https://api.instagram.com/v1/users/search" method = "GET">
+						<input  id ="username" type = "text" name = "q" placeholder = "Search Username" autocomplete = "off">
+						<input type = "hidden" name = "client_id" value = "cab47cb1b9794209822231299cdd86df">
+					</form>
+					
+					<ul id = "insta-user" class = "insta-user">
+					</ul>
+				</div>
+			</div>
+
+
+			
+			<script src="js/jquery-2.1.4.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/app.js"></script>
+		</body>
+	</html>

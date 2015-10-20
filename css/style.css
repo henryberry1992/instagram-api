@@ -1,0 +1,14 @@
+body,html 
+{
+	margin: 0%;
+	height: 100%;
+
+}
+
+.padding-top-10 {
+	padding-top:10%;
+}
+
+.padding-left-10 {
+	padding-left:10%;
+}

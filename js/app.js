@@ -4,7 +4,7 @@ $('#user-form').submit(function(event)
 	var userfrm = $('#user-form');
 	var username = userfrm.find('input[name = "q"]');
 	console.log("Form submitted");
-	
+
 	$.ajax({
 		url:userfrm.attr('action'),
 		type:userfrm.attr('method'),
@@ -19,7 +19,7 @@ $('#user-form').submit(function(event)
 				var i_username = data.data[i].username;
 				var i_profile_picture = data.data[i].profile_picture;
 				var i_fullname = data.data[i].full_name;
-				$('#insta-user').append('<li><a href="https://instagram.com/'+i_username+'"><img class="profile-photo" src="'+i_profile_picture+'">'+i_fullname+'</a></li>');	
+				$('#insta-user').append('<li><a href="https://instagram.com/'+i_username+'"><img class="profile-photo" src="'+i_profile_picture+'"><div>'+i_fullname+'</div></a></li>');	
 			}
 		},
 		error: function(data)
@@ -34,7 +34,10 @@ $('#username').keyup(function(){
 });
 
 
-$('#tag-form').submit(function(){instagram_api($(this));return false;})
+$('#tag-form').submit(function()
+{
+	instagram_api($(this));return false;
+})
 
 function instagram_api(frm)
 {
@@ -49,13 +52,14 @@ function images_response(data)
 	images = data.data;
 	$('#tag-user').html('');
 	
-	for(image in images)
+	for(i in images)
 	{
-	    var image_url = images[image].images.standard_resolution.url;
-	    var tag_link = images[image].link;
+	    var image_url = images[i].images.thumbnail.url;
+	    var tag_link = images[i].link;
 		$('#tag-user').append('<li><a href = "'+tag_link+'"><img src = "'+image_url+'"></a></li>');
 	}
 }
+
 function ajax_call(tag)
 {
 	$.ajax({
